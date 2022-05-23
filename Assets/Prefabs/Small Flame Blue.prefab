@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1190940762258187926, guid: 32ca28aee56c31c4b8470e1b58ae7bfb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9528302
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190940762258187926, guid: 32ca28aee56c31c4b8470e1b58ae7bfb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.69886607
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190940762258187926, guid: 32ca28aee56c31c4b8470e1b58ae7bfb, type: 3}
+      propertyPath: m_Color.r
+      value: 0.22921856
+      objectReference: {fileID: 0}
     - target: {fileID: 5925085181688452352, guid: 32ca28aee56c31c4b8470e1b58ae7bfb, type: 3}
       propertyPath: m_Controller
       value: 
@@ -62,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5925085181688452356, guid: 32ca28aee56c31c4b8470e1b58ae7bfb, type: 3}
       propertyPath: m_Name
-      value: Small Flame
+      value: Small Flame Blue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
