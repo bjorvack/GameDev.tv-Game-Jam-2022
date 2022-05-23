@@ -26,13 +26,18 @@ public class PlayerMoveState : PlayerBaseState
     private void ProcessMovement(Vector2 movement)
     {
         stateMachine.GetComponent<Rigidbody2D>().velocity = new Vector2(
-            stateMachine.MovementSpeed * movement.x,
+            stateMachine.MovementSpeed * Mathf.Sign(movement.x),
             stateMachine.GetComponent<Rigidbody2D>().velocity.y
         );
     }
 
     private void Jump()
     {
-        Debug.Log("Jump");
+        if (!stateMachine.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        
+        stateMachine.GetComponent<Rigidbody2D>().velocity = new Vector2(
+            stateMachine.GetComponent<Rigidbody2D>().velocity.x,
+            stateMachine.JumpSpeed
+        );
     }
 }
