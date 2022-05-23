@@ -25,6 +25,10 @@ public class PlayerMoveState : PlayerBaseState
     
     private void ProcessMovement(Vector2 movement)
     {
+        if (movement.x == 0f) { return; }
+
+        Debug.Log(movement.x);
+        
         stateMachine.GetComponent<Rigidbody2D>().velocity = new Vector2(
             stateMachine.MovementSpeed * Mathf.Sign(movement.x),
             stateMachine.GetComponent<Rigidbody2D>().velocity.y
