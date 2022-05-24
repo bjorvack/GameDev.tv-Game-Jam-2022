@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.22921856
       objectReference: {fileID: 0}
+    - target: {fileID: 3855860035345722523, guid: 32ca28aee56c31c4b8470e1b58ae7bfb, type: 3}
+      propertyPath: <Souls>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5925085181688452352, guid: 32ca28aee56c31c4b8470e1b58ae7bfb, type: 3}
       propertyPath: m_Controller
       value: 
