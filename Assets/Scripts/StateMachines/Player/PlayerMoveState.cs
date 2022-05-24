@@ -51,7 +51,7 @@ public class PlayerMoveState : PlayerBaseState
 
     private void Jump()
     {
-        if (!stateMachine.GetComponent<Collider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+        if (!stateMachine.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         
         stateMachine.GetComponent<Rigidbody2D>().velocity = new Vector2(
             stateMachine.GetComponent<Rigidbody2D>().velocity.x,
