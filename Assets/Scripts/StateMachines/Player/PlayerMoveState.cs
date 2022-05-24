@@ -34,21 +34,15 @@ public class PlayerMoveState : PlayerBaseState
     
     private void ProcessMovement(Vector2 movement, float deltaTime)
     {
-        if (movement.x == 0f) { return; }
+        if (movement.x == 0f) {
+            stateMachine.GetComponent<Rigidbody2D>().velocity = new Vector2(
+                0f,
+                stateMachine.GetComponent<Rigidbody2D>().velocity.y
+            );
 
-        Vector2 feetPosition = new Vector2(
-            stateMachine.transform.position.x,
-            stateMachine.transform.position.y - (stateMachine.GetComponent<CapsuleCollider2D>().size.y / 2f)
-        );
-        float distance = stateMachine.MovementSpeed * deltaTime + (stateMachine.GetComponent<CapsuleCollider2D>().size.x / 2f);
-
-        // Draw raycasts to check if we can move
-        RaycastHit2D[] hits = Physics2D.RaycastAll(feetPosition, new Vector2(Mathf.Sign(movement.x), 0f), distance);
-        foreach (RaycastHit2D hit in hits)
-        {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground")) { return; }
-        }
-        
+            return;
+         }
+       
         stateMachine.GetComponent<Rigidbody2D>().velocity = new Vector2(
             stateMachine.MovementSpeed * Mathf.Sign(movement.x),
             stateMachine.GetComponent<Rigidbody2D>().velocity.y
