@@ -23,6 +23,11 @@ public class PlayerMoveState : PlayerBaseState
     {
         FlipSprite(stateMachine.InputReader.MovementValue);
         ProcessMovement(stateMachine.InputReader.MovementValue, deltaTime);
+        if (stateMachine.GetComponent<Rigidbody2D>().velocity.y < 0)
+        {
+            stateMachine.GetComponent<Animator>().SetTrigger("IsLanding");
+            stateMachine.GetComponent<Animator>().SetBool("IsJumping", false);
+        }
     }
 
     private void FlipSprite(Vector2 movement)
@@ -62,5 +67,7 @@ public class PlayerMoveState : PlayerBaseState
             stateMachine.GetComponent<Rigidbody2D>().velocity.x,
             stateMachine.JumpSpeed
         );
+
+        stateMachine.GetComponent<Animator>().SetBool("IsJumping", true);
     }
 }

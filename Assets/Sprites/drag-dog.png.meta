@@ -201,6 +201,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: drag-dog_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53078dca181f4efd91be738d9197381
+      internalID: -1105704049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drag-dog_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1fc16d43e79d4f60865402e52c4797b
+      internalID: -679841905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -214,8 +256,10 @@ TextureImporter:
     nameFileIdTable:
       drag-dog_1: -1780775754
       drag-dog_3: 858318952
+      drag-dog_4: -1105704049
       drag-dog_0: 1964378673
       drag-dog_2: 1829352616
+      drag-dog_5: -679841905
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
