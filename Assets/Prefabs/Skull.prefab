@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 6246714517261361153}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6246714516916858442
 SpriteRenderer:
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82f89e8583e64477aebc9f19bfc2bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MovementSpeed>k__BackingField: 2.5
+  <MovementSpeed>k__BackingField: 3
   <DetectionRadius>k__BackingField: 5
 --- !u!1 &6246714517261361152
 GameObject:
