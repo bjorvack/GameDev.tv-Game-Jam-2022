@@ -40,6 +40,8 @@ public class PlayerMoveState : PlayerBaseState
                 stateMachine.GetComponent<Rigidbody2D>().velocity.y
             );
 
+            stateMachine.GetComponent<Animator>().SetBool("IsWalking", false);
+
             return;
          }
        
@@ -47,6 +49,9 @@ public class PlayerMoveState : PlayerBaseState
             stateMachine.MovementSpeed * Mathf.Sign(movement.x),
             stateMachine.GetComponent<Rigidbody2D>().velocity.y
         );
+
+
+        stateMachine.GetComponent<Animator>().SetBool("IsWalking", true);
     }
 
     private void Jump()
