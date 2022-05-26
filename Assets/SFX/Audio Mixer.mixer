@@ -14,6 +14,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-3943959899600816449
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: a9f52ffb0f4d5424caae879b9234b4ab
+  m_EffectName: Attenuation
+  m_MixLevel: 902ef056c0e6b4a8cb38de1f3b2ef17a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-1684114968012582096
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -28,6 +42,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-1033760662595019075
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SFX Souls
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: d3ab3626caa754f22a8c632b36b27a13
+  m_Children: []
+  m_Volume: cc00766c71ac645f38c4555005aa317b
+  m_Pitch: c3eb3563c22c446b5b67d99032bf7325
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -3943959899600816449}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -49,6 +82,7 @@ AudioMixerController:
     - a85c632f8dd044d6d95de9a438cdb824
     - 0682fe065fc314e69af293f1ecef1fae
     - e033e0d2c69f34452ad99bad079b44f3
+    - d3ab3626caa754f22a8c632b36b27a13
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -64,6 +98,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: 4933295823724738130}
   - {fileID: 2349593036522369559}
+  - {fileID: -1033760662595019075}
   m_Volume: 122f7a3b8d0a7470787a883b5f022ac1
   m_Pitch: d828ada47d0ad4d59825a96ddad107e0
   m_Send: 00000000000000000000000000000000
@@ -98,7 +133,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: 69e52046f4cbc4af2a21f2c84c93b710
   m_FloatValues:
     d828ada47d0ad4d59825a96ddad107e0: 1
-    c3605a367ce054ba984843847d7b88ab: -22.003613
+    c3605a367ce054ba984843847d7b88ab: -10.867776
     055ddf47ee2ed4ebc834f4db677130a8: -6.5566154
     62c4d94aa74f34757bd5fbbcad049704: 1.65
     6e595f2be248e4ff1a5fb3891de26f74: 4380

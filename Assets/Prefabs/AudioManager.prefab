@@ -48,3 +48,4 @@ MonoBehaviour:
   <JumpSFX>k__BackingField: {fileID: 3174313708571456061, guid: 189bd584e9804415da379831024282c4, type: 3}
   <WarpSFX>k__BackingField: {fileID: 548064881566312528, guid: c60e219d86eaa403e8748696f836f9b9, type: 3}
   <DeathSFX>k__BackingField: {fileID: 58067250543335822, guid: 99b3cca0216204bd2b47bd8ca15dcd11, type: 3}
+  <PickupSFX>k__BackingField: {fileID: 2788072345187022562, guid: fb88ebae0f9cb45438f7c8122f73fe6a, type: 3}

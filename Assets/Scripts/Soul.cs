@@ -9,8 +9,24 @@ public class Soul : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player") {
-            FindObjectsOfType<GameSession>()[0].AddSouls(Souls);
-            Destroy(gameObject);
+            StartCoroutine(Pickup(other));
         }
+    }
+
+    IEnumerator Pickup(Collider2D other)
+    {
+        FindObjectOfType<AudioManager>().PlayPickupSFX();
+        float clipLenght = FindObjectOfType<AudioManager>().GetPickupSFXLenght() / 2;
+       
+        // Disable all child spriterenderers
+        foreach (SpriteRenderer spriteRenderer in GetComponentsInChildren<SpriteRenderer>()) {
+            spriteRenderer.enabled = false;
+        }
+
+
+        yield return new WaitForSeconds(clipLenght);
+
+        FindObjectOfType<GameSession>().AddSouls(Souls);
+        Destroy(gameObject);
     }
 }

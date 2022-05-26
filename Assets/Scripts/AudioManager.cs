@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
 
     [field: SerializeField] public GameObject DeathSFX { get; private set; }
 
+    [field: SerializeField] public GameObject PickupSFX { get; private set; }
+
 
     void Start()
     {
@@ -56,6 +58,16 @@ public class AudioManager : MonoBehaviour
     public float GetDeathSFXLenght()
     {
         return GetSFXLength(DeathSFX);
+    }
+
+    public void PlayPickupSFX()
+    {
+        PlaySFX(PickupSFX);
+    }
+
+    public float GetPickupSFXLenght()
+    {
+        return GetSFXLength(PickupSFX);
     }
 
     private float GetSFXLength(GameObject sfx)
