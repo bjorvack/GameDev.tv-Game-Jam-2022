@@ -75,11 +75,21 @@ public class Skull : MonoBehaviour
         float clipLenght = FindObjectOfType<AudioManager>().GetDeathSFXLenght() * 2 / 3;
         PlayerStateMachine stateMachine = FindObjectOfType<PlayerStateMachine>();
         
-        stateMachine.SwitchState(new PlayerDeathState(stateMachine));
+        stateMachine.SwitchState(
+            new PlayerDeathState(
+                stateMachine,
+                FindObjectOfType<SpawnPoint>().transform
+            )
+        );
 
         yield return new WaitForSeconds(clipLenght);
 
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
+        stateMachine.SwitchState(
+            new PlayerMoveState(
+                stateMachine
+            )
+        );
         
     }
 

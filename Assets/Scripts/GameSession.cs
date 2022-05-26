@@ -35,8 +35,6 @@ public class GameSession : MonoBehaviour
 
             return;
         }
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void ResetGameSession()

@@ -21,5 +21,6 @@ public class Door : MonoBehaviour
         yield return new WaitForSeconds(clipLenght);
 
         other.transform.position = Target.position;
+        FindObjectOfType<SpawnPoint>().Move(Target.position);
     }
 }

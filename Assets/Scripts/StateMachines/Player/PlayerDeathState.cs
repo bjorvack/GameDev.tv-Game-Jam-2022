@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerDeathState : PlayerBaseState
 {
-    public PlayerDeathState(PlayerStateMachine stateMachine) : base(stateMachine)
+    private Transform spawnPoint;
+
+    public PlayerDeathState(PlayerStateMachine stateMachine, Transform spawnPoint) : base(stateMachine)
     {
+        this.spawnPoint = spawnPoint;
     }
 
     public override void Enter()
     {
         stateMachine.GetComponent<SpriteRenderer>().enabled = false;
+        stateMachine.transform.position = spawnPoint.position;
     }
 
     public override void Exit()
