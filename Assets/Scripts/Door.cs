@@ -9,7 +9,17 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player") {
-            other.transform.position = Target.position;
+            StartCoroutine(Teleport(other));
         }
+    }
+
+    IEnumerator Teleport(Collider2D other)
+    {
+        FindObjectOfType<AudioManager>().PlayWarpSFX();
+        float clipLenght = FindObjectOfType<AudioManager>().GetWarpSFXLenght() / 2;
+
+        yield return new WaitForSeconds(clipLenght);
+
+        other.transform.position = Target.position;
     }
 }

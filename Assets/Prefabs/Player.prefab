@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InputReader>k__BackingField: {fileID: 2853410587678178078}
+  <AudioManager>k__BackingField: {fileID: 0}
   <MovementSpeed>k__BackingField: 5
   <JumpSpeed>k__BackingField: 15
 --- !u!114 &2853410587678178078

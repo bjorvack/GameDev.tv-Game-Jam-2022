@@ -5,11 +5,13 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [field: SerializeField] public AudioListener AudioListener { get; private set; }
-
     [field: SerializeField] public GameObject BackgroundMusic { get; private set; }
 
     [field: SerializeField] public GameObject JumpSFX { get; private set; }
+
+    [field: SerializeField] public GameObject WarpSFX { get; private set; }
+
+    [field: SerializeField] public GameObject DeathSFX { get; private set; }
 
 
     void Start()
@@ -27,7 +29,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBackgroundMusic()
     {
-        Object.Instantiate(BackgroundMusic);
+        GameObject music = Object.Instantiate(BackgroundMusic);
+        music.transform.parent = gameObject.transform;
     }
 
     public void PlayJumpSFX()
@@ -35,9 +38,35 @@ public class AudioManager : MonoBehaviour
         PlaySFX(JumpSFX);
     }
 
+    public void PlayWarpSFX()
+    {
+        PlaySFX(WarpSFX);
+    }
+
+    public float GetWarpSFXLenght()
+    {
+        return GetSFXLength(WarpSFX);
+    }
+
+    public void PlayDeathSFX()
+    {
+        PlaySFX(DeathSFX);
+    }
+
+    public float GetDeathSFXLenght()
+    {
+        return GetSFXLength(DeathSFX);
+    }
+
+    private float GetSFXLength(GameObject sfx)
+    {
+        AudioSource audioSource = sfx.GetComponent<AudioSource>();
+        return audioSource.clip.length;
+    }
+
     private void PlaySFX(GameObject clip)
     {
-        GameObject sfx = Object.Instantiate(clip, AudioListener.transform);
+        GameObject sfx = Object.Instantiate(clip);
         StartCoroutine(DestroySFX(sfx));
     }
 

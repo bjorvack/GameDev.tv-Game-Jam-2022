@@ -22,6 +22,8 @@ public class Skull : MonoBehaviour
 
     private void Follow()
     {
+        if (FindObjectOfType<PlayerStateMachine>() == null) { return; }
+
         Vector2 targetPosition;
         // If the distance between the player and the skull is less than the detection radius,
         // then the skull will move towards the player.
@@ -63,8 +65,22 @@ public class Skull : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player") {
-            FindObjectOfType<GameSession>().ProcessPlayerDeath();
+            StartCoroutine(HurtPlayer(other));
         }
+    }
+
+    IEnumerator HurtPlayer(Collider2D other)
+    {
+        FindObjectOfType<AudioManager>().PlayDeathSFX();
+        float clipLenght = FindObjectOfType<AudioManager>().GetDeathSFXLenght() * 2 / 3;
+        PlayerStateMachine stateMachine = FindObjectOfType<PlayerStateMachine>();
+        
+        stateMachine.SwitchState(new PlayerDeathState(stateMachine));
+
+        yield return new WaitForSeconds(clipLenght);
+
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
+        
     }
 
     private void OnDrawGizmos() {

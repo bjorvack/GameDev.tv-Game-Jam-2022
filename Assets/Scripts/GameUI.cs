@@ -9,6 +9,8 @@ public class GameUI : MonoBehaviour
 
     private void Update()
     {
+        if (FindObjectOfType<GameSession>() == null) { return; }
+        
         SoulsText.text = FindObjectOfType<GameSession>().Souls.ToString();
     }
 }
