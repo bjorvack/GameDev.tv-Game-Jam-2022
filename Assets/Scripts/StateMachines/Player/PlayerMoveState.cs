@@ -69,5 +69,6 @@ public class PlayerMoveState : PlayerBaseState
         );
 
         stateMachine.GetComponent<Animator>().SetBool("IsJumping", true);
+        stateMachine.AudioManager.PlayJumpSFX();
     }
 }
