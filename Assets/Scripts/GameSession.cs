@@ -26,10 +26,19 @@ public class GameSession : MonoBehaviour
         Souls += amount;
     }
 
-    public void ProcessPlayerDeath()
+
+    public void TakeLife()
     {
         Lives--;
+        GameObject lives = GameObject.FindWithTag("Lives");
+        lives.GetComponent<RectTransform>().sizeDelta = new Vector2(
+            100f * Lives,
+            100f
+        );
+    }
 
+    public void ProcessPlayerDeath()
+    {
         if (Lives <= 0) {
             ResetGameSession();
 
