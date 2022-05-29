@@ -62,10 +62,11 @@ public class Cat : MonoBehaviour
         );
 
         FindObjectOfType<GameSession>().TakeLife();
-        
+
         yield return new WaitForSeconds(clipLenght);
 
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
+
         stateMachine.SwitchState(
             new PlayerMoveState(
                 stateMachine

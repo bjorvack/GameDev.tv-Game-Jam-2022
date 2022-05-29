@@ -87,12 +87,12 @@ public class Skull : MonoBehaviour
         yield return new WaitForSeconds(clipLenght);
 
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
+        
         stateMachine.SwitchState(
             new PlayerMoveState(
                 stateMachine
             )
         );
-        
     }
 
     private void OnDrawGizmos() {

@@ -10,6 +10,8 @@ public class GameSession : MonoBehaviour
 
     [field: SerializeField] public int Souls { get; private set; }
 
+    [field: SerializeField] public Transform GameOverPosition { get; private set; }
+
     void Awake()
     {
         if (FindObjectsOfType(GetType()).Length > 1) {
@@ -40,15 +42,9 @@ public class GameSession : MonoBehaviour
     public void ProcessPlayerDeath()
     {
         if (Lives <= 0) {
-            ResetGameSession();
+            GameObject.FindWithTag("Player").transform.position = GameOverPosition.position;
 
             return;
         }
-    }
-
-    private void ResetGameSession()
-    {
-        SceneManager.LoadScene(0);
-        Destroy(this);
     }
 }

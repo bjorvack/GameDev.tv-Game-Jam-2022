@@ -12,6 +12,7 @@ public class PlayerMoveState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.JumpEvent += Jump;
+        stateMachine.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public override void Exit()
