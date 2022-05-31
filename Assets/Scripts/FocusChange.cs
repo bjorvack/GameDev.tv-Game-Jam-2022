@@ -13,6 +13,7 @@ public class FocusChange : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") {
             Focus();
+            FindObjectOfType<GameSession>().Finish();
         }
     }
 

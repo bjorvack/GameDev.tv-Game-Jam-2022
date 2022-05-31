@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class GameSession : MonoBehaviour
     [field: SerializeField] public int Souls { get; private set; }
 
     [field: SerializeField] public Transform GameOverPosition { get; private set; }
+
+    private Boolean finished = false;
 
     void Awake()
     {
@@ -46,5 +49,15 @@ public class GameSession : MonoBehaviour
 
             return;
         }
+    }
+
+    public void Finish()
+    {
+        finished = true;
+    }
+
+    public Boolean IsFinished()
+    {
+        return finished;
     }
 }

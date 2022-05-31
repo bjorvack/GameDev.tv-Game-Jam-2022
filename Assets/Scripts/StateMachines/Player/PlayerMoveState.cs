@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoveState : PlayerBaseState
 {    
@@ -12,6 +13,7 @@ public class PlayerMoveState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.JumpEvent += Jump;
+        stateMachine.InputReader.RestartEvent += Restart;
         stateMachine.GetComponent<SpriteRenderer>().enabled = true;
     }
 
@@ -58,6 +60,15 @@ public class PlayerMoveState : PlayerBaseState
 
 
         stateMachine.GetComponent<Animator>().SetBool("IsWalking", true);
+    }
+
+    private void Restart()
+    {
+        if (stateMachine.GameSession.IsFinished()) {
+            GameObject.Destroy(stateMachine.GameSession);
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     private void Jump()

@@ -222,6 +222,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: buttons_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238bd69208c24428698e4985cf3ac07f
+      internalID: 372586744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -237,6 +258,7 @@ TextureImporter:
       buttons_0: 1077694444
       buttons_4: -2027723780
       buttons_1: 1196065002
+      buttons_5: 372586744
       buttons_3: -888407242
   spritePackingTag: 
   pSDRemoveMatte: 0

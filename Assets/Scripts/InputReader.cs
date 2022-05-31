@@ -9,6 +9,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MovementValue { get; private set; }
     
     public event Action JumpEvent;
+
+    public event Action RestartEvent;
     
     private Controls controls;
 
@@ -33,5 +35,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         if (!context.performed) { return; }
         JumpEvent?.Invoke();
+    }
+
+    public void OnRestart(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        RestartEvent?.Invoke();
     }
 }
