@@ -20,7 +20,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentSouls = FindObjectOfType<GameSession>().Souls;
+        currentSouls = FindObjectOfType<GameSession>()?.Souls ?? 0;
 
         ScoreText.text = currentSouls.ToString() + "/" + maxSouls.ToString() + " souls collected";
     }

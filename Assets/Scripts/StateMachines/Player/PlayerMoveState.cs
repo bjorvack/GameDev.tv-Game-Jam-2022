@@ -64,8 +64,8 @@ public class PlayerMoveState : PlayerBaseState
 
     private void Restart()
     {
-        if (stateMachine.GameSession.IsFinished()) {
-            GameObject.Destroy(stateMachine.GameSession);
+        if (stateMachine.GameSession.IsFinished() && stateMachine.GameSession) {
+            GameObject.DestroyImmediate(stateMachine.GameSession.gameObject);
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

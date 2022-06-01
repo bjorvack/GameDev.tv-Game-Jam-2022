@@ -10,6 +10,16 @@ public class Cat : MonoBehaviour
 
     private int currentWaypointIndex = 0;
 
+    private void Start()
+    {
+        FindObjectOfType<GameSession>().ResetEvent += Reset;
+    }
+
+    private void Reset()
+    {
+        transform.position = Waypoints[0].transform.position;
+    }
+
     private void Update()
     {
 
@@ -53,25 +63,21 @@ public class Cat : MonoBehaviour
         FindObjectOfType<AudioManager>().PlayDeathSFX();
         float clipLenght = FindObjectOfType<AudioManager>().GetDeathSFXLenght() * 2 / 3;
         PlayerStateMachine stateMachine = FindObjectOfType<PlayerStateMachine>();
-
+        
         stateMachine.SwitchState(
             new PlayerDeathState(
-                stateMachine,
-                FindObjectOfType<SpawnPoint>().transform
+                stateMachine
             )
         );
-
-        FindObjectOfType<GameSession>().TakeLife();
 
         yield return new WaitForSeconds(clipLenght);
 
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
-
+        
         stateMachine.SwitchState(
             new PlayerMoveState(
                 stateMachine
             )
         );
-
     }
 }

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2853410587678178073}
   - component: {fileID: 2853410587678178078}
   - component: {fileID: 6591182528410449938}
-  - component: {fileID: 8329403957468995595}
   - component: {fileID: 4959944926568420083}
   - component: {fileID: 1497861117460386960}
+  - component: {fileID: 3349597552973097770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -104,7 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InputReader>k__BackingField: {fileID: 2853410587678178078}
-  <AudioManager>k__BackingField: {fileID: 0}
   <MovementSpeed>k__BackingField: 5
   <JumpSpeed>k__BackingField: 15
 --- !u!114 &2853410587678178078
@@ -140,22 +139,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &8329403957468995595
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2853410587678178077}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.032545567, y: -0.028826058}
-  m_Size: {x: 0.93382025, y: 0.93382025}
-  m_Direction: 0
 --- !u!61 &4959944926568420083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,6 +185,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &3349597552973097770
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2853410587678178077}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.12539694, y: 0.37911642}
+      - {x: -0.12317869, y: 0.00546813}
+      - {x: -0.37353718, y: -0.04981625}
+      - {x: -0.3772567, y: -0.49628055}
+      - {x: 0.3738112, y: -0.5001618}
+      - {x: 0.37539697, y: -0.37725672}
+      - {x: 0.50140786, y: -0.29196802}
+      - {x: 0.49814025, y: 0.37911642}
+  m_UseDelaunayMesh: 0
 --- !u!1 &7265662866353287778
 GameObject:
   m_ObjectHideFlags: 0

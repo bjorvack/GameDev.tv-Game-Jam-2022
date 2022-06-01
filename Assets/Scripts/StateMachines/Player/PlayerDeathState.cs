@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class PlayerDeathState : PlayerBaseState
 {
-    private Transform spawnPoint;
-
-    public PlayerDeathState(PlayerStateMachine stateMachine, Transform spawnPoint) : base(stateMachine)
+    public PlayerDeathState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
-        this.spawnPoint = spawnPoint;
     }
 
     public override void Enter()
     {
         stateMachine.GetComponent<SpriteRenderer>().enabled = false;
-        stateMachine.transform.position = spawnPoint.position;
     }
 
     public override void Exit()
@@ -24,6 +20,6 @@ public class PlayerDeathState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-
+        stateMachine.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
     }
 }

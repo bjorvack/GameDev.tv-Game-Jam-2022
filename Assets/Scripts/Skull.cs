@@ -13,6 +13,7 @@ public class Skull : MonoBehaviour
     private void Start()
     {
         initialPositon = transform.position;
+        FindObjectOfType<GameSession>().ResetEvent += Reset;
     }
 
     private void Update()
@@ -20,15 +21,22 @@ public class Skull : MonoBehaviour
         Follow();
     }
 
+    private void Reset()
+    {
+        transform.position = initialPositon;
+    }
+
     private void Follow()
     {
-        if (FindObjectOfType<PlayerStateMachine>() == null) { return; }
+        PlayerStateMachine player = FindObjectOfType<PlayerStateMachine>();
+        if (player == null) { return; }
 
         Vector2 targetPosition;
         // If the distance between the player and the skull is less than the detection radius,
         // then the skull will move towards the player.
-        if (Vector2.Distance(transform.position, FindObjectOfType<PlayerStateMachine>().transform.position) < DetectionRadius)
-        {
+        if (Vector2.Distance(transform.position, player.transform.position) < DetectionRadius &&
+            !(player.CurrentState is PlayerDeathState)
+        ) {
             targetPosition = Vector2.MoveTowards(
                 transform.position,
                 FindObjectOfType<PlayerStateMachine>().transform.position,
@@ -69,6 +77,11 @@ public class Skull : MonoBehaviour
         }
     }
 
+    private void ResetPosition()
+    {
+        transform.position = initialPositon;
+    }
+
     IEnumerator HurtPlayer(Collider2D other)
     {
         FindObjectOfType<AudioManager>().PlayDeathSFX();
@@ -77,12 +90,9 @@ public class Skull : MonoBehaviour
         
         stateMachine.SwitchState(
             new PlayerDeathState(
-                stateMachine,
-                FindObjectOfType<SpawnPoint>().transform
+                stateMachine
             )
         );
-
-        FindObjectOfType<GameSession>().TakeLife();
 
         yield return new WaitForSeconds(clipLenght);
 

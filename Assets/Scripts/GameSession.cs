@@ -13,6 +13,10 @@ public class GameSession : MonoBehaviour
 
     [field: SerializeField] public Transform GameOverPosition { get; private set; }
 
+    [field: SerializeField] public Transform SpawnPointPosition { get; private set; }
+
+    public event Action ResetEvent;
+
     private Boolean finished = false;
 
     void Awake()
@@ -44,11 +48,17 @@ public class GameSession : MonoBehaviour
 
     public void ProcessPlayerDeath()
     {
+        TakeLife();
+
+        ResetEvent?.Invoke();
+
         if (Lives <= 0) {
             GameObject.FindWithTag("Player").transform.position = GameOverPosition.position;
 
             return;
         }
+
+        GameObject.FindWithTag("Player").transform.position = SpawnPointPosition.position;
     }
 
     public void Finish()
